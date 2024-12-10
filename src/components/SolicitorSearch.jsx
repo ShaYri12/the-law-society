@@ -92,7 +92,7 @@ const SolicitorSearch = () => {
   };
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 md:px-[28px] py-8">
+    <div className="max-w-[1200px] mx-auto px-5 md:px-[28px] py-8 py-[40px]">
       <h1 className="text-4xl font-bold mb-2">Find a Solicitor</h1>
       <p className="text-xl mb-8">
         The official database of {data.length.toLocaleString()} legal

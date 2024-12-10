@@ -5,11 +5,11 @@ import LawSociety from "./LawSociety";
 
 export default function AboutSolicitor() {
   return (
-    <div className="max-w-[1200px] mx-auto px-4 md:px-[28px] py-8">
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <div className="md:flex">
+    <div className="py-8">
+      <div className="rounded-lg overflow-hidden mb-[60px]">
+        <div className="md:flex mb-[16px] bg-[#F2F6F8]">
           {/* About Section */}
-          <div className="md:w-1/2 p-6">
+          <div className="md:w-1/2 py-[28px] md:px-[28px] px-5">
             <h2 className="text-3xl font-bold mb-4">About Find a Solicitor</h2>
             <p className="mb-4">
               Run by the Law Society, Find a Solicitor is a free service for
@@ -24,7 +24,7 @@ export default function AboutSolicitor() {
           {/* Image Section */}
           <div className="md:w-1/2">
             <img
-              src="/placeholder.svg"
+              src="/assets/home-banner-about.jpg"
               alt="People in a meeting"
               className="w-full h-full object-cover"
             />

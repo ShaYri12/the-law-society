@@ -1,3 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", serif;
+}
+
+@media screen and (max-width: 500px) {
+  .accredited {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.heading {
+  font-family: "Tinos", serif;
+  font-size: 38.57px;
+  font-weight: bold;
+  margin: 0.5em 0;
+  line-height: 1em;
+  text-rendering: optimizeLegibility;
+}
+
+.para {
+  font-size: 18px;
+  margin-bottom: 16.2px;
+  line-height: 1.5em;
+}
