@@ -15,9 +15,23 @@ body {
   font-family: "Montserrat", serif;
 }
 
+@media screen and (max-width: 870px) {
+  .rights-reserved-box {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .accredited {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-rights-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rights-reserved-text {
+    width: 100%;
   }
 }
 

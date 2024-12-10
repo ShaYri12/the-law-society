@@ -2,7 +2,7 @@ import { FaPhone } from "react-icons/fa";
 
 export default function LawSociety() {
   return (
-    <div className="space-y-[60px]">
+    <section className="space-y-[60px]">
       {/* Quality Marks Section */}
       <div className="grid md:grid-cols-2 gap-[40px] items-center bg-[#F2F6F8] py-[30px] md:px-[30px] px-5">
         <div className="md:order-1 order-2 accredited w-full grid grid-cols-4 sm:grid-cols-6 md:grid-cols-4 lg:grid-cols-6 items-center justify-center gap-[10px]">
@@ -69,6 +69,6 @@ export default function LawSociety() {
           by selecting 'Find a Solicitor' under 'Question'
         </p>
       </div>
-    </div>
+    </section>
   );
 }
