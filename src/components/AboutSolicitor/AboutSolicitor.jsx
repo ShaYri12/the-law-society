@@ -10,8 +10,8 @@ export default function AboutSolicitor() {
         <div className="md:flex mb-[16px] bg-[#F2F6F8]">
           {/* About Section */}
           <div className="md:w-1/2 py-[28px] md:px-[28px] px-5">
-            <h2 className="text-3xl font-bold mb-4">About Find a Solicitor</h2>
-            <p className="mb-4">
+            <h2 className="heading">About Find a Solicitor</h2>
+            <p className="para">
               Run by the Law Society, Find a Solicitor is a free service for
               anyone looking for information about organisations or people
               providing legal services in England and Wales that are regulated
