@@ -151,7 +151,16 @@ const SolicitorSearch = () => {
       {searchResults.length > 0 ? (
         <SearchResults results={searchResults} />
       ) : (
-        <AboutSolicitor />
+        <>
+          <div className="px-[20px] md:px-[28px] py-[50px]">
+            <div className="max-w-[1200px] mx-auto">
+              <p className="para border-b border-[#4D839C] pb-2">
+                Sorry, no results found.
+              </p>
+            </div>
+          </div>
+          <AboutSolicitor />
+        </>
       )}
     </div>
   );

@@ -85,7 +85,7 @@ export const AdvancedSearch = ({
               className="w-full p-[10px] border border-[#574840] placeholder:text-black/70 appearance-none pr-10"
             >
               {areasOfPractice.map((area) => (
-                <option key={area.value} value={area.value}>
+                <option key={area.value} value={area.label}>
                   {area.label}
                 </option>
               ))}
