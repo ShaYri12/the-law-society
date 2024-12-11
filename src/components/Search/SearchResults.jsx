@@ -162,7 +162,11 @@ export const SearchResults = ({ results }) => {
               >
                 {openSections.languages && (
                   <div className="pb-4 px-4 grid grid-cols-3 gap-[14px] md:text-[18px] text-[16px] leading-[1.5em]">
-                    <span>{solicitor.language}</span>
+                    {solicitor.language.split(",").map((lang, index) => (
+                      <span key={index} className="flex items-center">
+                        {lang.trim()}
+                      </span>
+                    ))}
                   </div>
                 )}
               </div>
