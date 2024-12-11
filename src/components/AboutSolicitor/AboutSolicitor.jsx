@@ -21,7 +21,7 @@ export default function AboutSolicitor() {
                 providing legal services in England and Wales that are regulated
                 by the Solicitors Regulation Authority (SRA).
               </p>
-              <button className="bg-[#004d71] text-white px-[25px] py-[10px] text-[15px] font-[600] hover:bg-[#003e5a] transition-colors uppercase tracking-[1.5px] mt-[10px]">
+              <button className="bg-[#004d71] text-white px-[25px] py-[9px] text-[15px] font-[600] hover:bg-[#003e5a] transition-colors uppercase tracking-[1.5px] mt-[10px]">
                 LEARN MORE
               </button>
             </div>
@@ -45,7 +45,7 @@ export default function AboutSolicitor() {
                 Using Find a Solicitor
               </span>
             </div>
-            <p className="text-[18px] leading-[1.5em]">
+            <p className="text-[16px] md:text-[18px] leading-[1.5em]">
               The Law Society does not provide legal advice. Please{" "}
               <Link to="#" className="text-[#574840] text-underline">
                 read our guides to common legal issues

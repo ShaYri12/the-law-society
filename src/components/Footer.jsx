@@ -6,13 +6,13 @@ export default function Footer() {
   return (
     <footer>
       <div className="bg-[#FCFAF4] px-[20px] py-[56px] border-t border-[#D6C679] mt-[30px]">
-        <div className="flex md:flex-row flex-col gap-[30px] sm:gap-[60px] lg:gap-[170px] max-w-[1200px] mx-auto px-[10px] md:px-[28px]">
+        <div className="flex md:flex-row flex-col gap-[60px] lg:gap-[170px] max-w-[1200px] mx-auto px-[10px] md:px-[28px]">
           {/* Find a Solicitor Column */}
           <div>
             <h2 className="text-[27px] font-tinos font-bold leading-[1em] mt-[0.5em] mb-[20px]">
               Find a Solicitor
             </h2>
-            <ul className="space-y-[20px] text-[18px] text-[#574840] leading-[1.5em]">
+            <ul className="space-y-[20px] text-[16px] md:text-[18px] text-[#574840] leading-[1.5em]">
               <li>
                 <Link href="/" className="underline hover:no-underline">
                   Home
@@ -50,7 +50,7 @@ export default function Footer() {
               More from the Law Society
             </h2>
             <div className="flex sm:flex-row flex-col gap-[20px] sm:gap-[30px] sm:gap-[60px] lg:gap-[170px]">
-              <ul className="space-y-[20px] text-[18px] text-[#574840] leading-[1.5em]">
+              <ul className="space-y-[20px] text-[16px] md:text-[18px] text-[#574840] leading-[1.5em]">
                 <li>
                   <Link
                     href="/law-society"
@@ -92,7 +92,7 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
-              <ul className="space-y-[20px] text-[18px] text-[#574840] leading-[1.5em]">
+              <ul className="space-y-[20px] text-[16px] md:text-[18px] text-[#574840] leading-[1.5em]">
                 <li>
                   <Link
                     href="/bookshop"

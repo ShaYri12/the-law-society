@@ -63,7 +63,9 @@ const Cards = () => {
             <h4 className="text-[24px] my-[0.2em] font-tinos font-bold leading-[1.5em]">
               {card.title}
             </h4>
-            <p className="mb-[20px]">{card.description}</p>
+            <p className="text-[16px] md:text-[18px] mb-[20px]">
+              {card.description}
+            </p>
           </div>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { data } from "../../public/assets/data";
-import AboutSolicitor from "./AboutSolicitor/AboutSolicitor";
-import { GeneralSearch } from "./GeneralSearch";
+import { data } from "../../../public/assets/data";
+import AboutSolicitor from "../AboutSolicitor/AboutSolicitor";
+import { QuickSearch } from "./QuickSearch";
 import { AdvancedSearch } from "./AdvancedSearch";
 import { SearchResults } from "./SearchResults";
 
@@ -18,16 +18,22 @@ const SolicitorSearch = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    let filtered = [...data];
 
+    let filtered = [...data]; // Clone the data to ensure immutability
+
+    // If quick search is active
     if (activeTab === "quick") {
+      // Search by legal issue (area_of_practice)
       if (formData.legalIssue) {
-        filtered = filtered.filter((item) =>
-          item.area_of_practice
-            .toLowerCase()
-            .includes(formData.legalIssue.toLowerCase())
+        filtered = filtered.filter(
+          (item) =>
+            item.area_of_practice
+              .toLowerCase()
+              .includes(formData.legalIssue.toLowerCase()) // Filtering by area_of_practice
         );
       }
+
+      // Search by location (country or associate_at)
       if (formData.location) {
         filtered = filtered.filter(
           (item) =>
@@ -40,6 +46,8 @@ const SolicitorSearch = () => {
         );
       }
     } else {
+      // If it's an advanced search
+      // Search by name or SRA ID
       if (formData.nameOrSRA) {
         filtered = filtered.filter(
           (item) =>
@@ -49,6 +57,8 @@ const SolicitorSearch = () => {
             item.SRAid.toLowerCase().includes(formData.nameOrSRA.toLowerCase())
         );
       }
+
+      // Search by location
       if (formData.location) {
         filtered = filtered.filter(
           (item) =>
@@ -60,16 +70,19 @@ const SolicitorSearch = () => {
               .includes(formData.location.toLowerCase())
         );
       }
+
+      // Search by area of practice
       if (formData.areaOfPractice) {
-        filtered = filtered.filter((item) =>
-          item.area_of_practice
-            .toLowerCase()
-            .includes(formData.areaOfPractice.toLowerCase())
+        filtered = filtered.filter(
+          (item) =>
+            item.area_of_practice
+              .toLowerCase()
+              .includes(formData.areaOfPractice.toLowerCase()) // Filtering by selected area of practice
         );
       }
     }
 
-    setSearchResults(filtered);
+    setSearchResults(filtered); // Update the search results state
   };
 
   const handleInputChange = (e) => {
@@ -84,30 +97,30 @@ const SolicitorSearch = () => {
     <div className="pt-[73px]">
       <div className="bg-[#FCFAF4] px-5 md:px-[28px] py-[28px] mb-[30px]">
         <div className="max-w-[1200px] mx-auto">
-          <h1 className="text-[45px] my-[0.5em] font-tinos leading-[1em] font-bold">
+          <h1 className="text-[27px] md:text-[45px] my-[0.5em] font-tinos leading-[1em] font-bold">
             Find a Solicitor
           </h1>
-          <p className="text-[20px] mb-[18px]">
+          <p className="text-[18px] md:text-[20px] mb-[18px]">
             The official database of{" "}
             <strong>{data.length.toLocaleString()}</strong> legal professionals
           </p>
 
-          <div className="flex">
+          <div className="flex gap-1">
             <button
-              className={`px-8 py-4 text-xl ${
+              className={`search-tab px-[10px] sm:px-[28px] py-[9px] text-[18px] sm:text-[21.6px] font-[600] tracking-[1px] leading-[1.5em] ${
                 activeTab === "quick"
-                  ? "bg-[#ffe4e1] text-black"
-                  : "bg-[#00527a] text-white"
+                  ? "bg-[#FBD7CC] text-black"
+                  : "bg-[#004d71] text-white hover:underline"
               }`}
               onClick={() => setActiveTab("quick")}
             >
               Quick search
             </button>
             <button
-              className={`px-8 py-4 text-xl ${
+              className={`search-tab px-[10px] sm:px-[28px] py-[9px] text-[18px] sm:text-[21.6px] font-[600] tracking-[1px] leading-[1.5em] ${
                 activeTab === "advanced"
-                  ? "bg-[#ffe4e1] text-black"
-                  : "bg-[#00527a] text-white"
+                  ? "bg-[#FBD7CC] text-black"
+                  : "bg-[#004d71] text-white hover:underline"
               }`}
               onClick={() => setActiveTab("advanced")}
             >
@@ -115,9 +128,9 @@ const SolicitorSearch = () => {
             </button>
           </div>
 
-          <div className="bg-[#ffe4e1] p-8">
+          <div className="bg-[#FBD7CC] p-[20px] sm:p-[28px]">
             {activeTab === "quick" ? (
-              <GeneralSearch
+              <QuickSearch
                 formData={formData}
                 handleInputChange={handleInputChange}
                 handleSearch={handleSearch}
