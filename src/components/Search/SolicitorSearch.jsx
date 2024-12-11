@@ -6,7 +6,7 @@ import { AdvancedSearch } from "./AdvancedSearch";
 import { SearchResults } from "./SearchResults";
 
 const SolicitorSearch = () => {
-  const [activeTab, setActiveTab] = useState("quick");
+  const [activeTab, setActiveTab] = useState("advanced");
   const [searchType, setSearchType] = useState("organisation");
   const [searchResults, setSearchResults] = useState([]);
   const [formData, setFormData] = useState({
