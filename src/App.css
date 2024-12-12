@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", serif;
 }
@@ -28,6 +32,26 @@ body {
   font-size: 18px;
   margin-bottom: 16.2px;
   line-height: 1.5em;
+}
+
+.custom-checkbox {
+  appearance: none; /* Removes default checkbox styling */
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background-color: #fff;
+  background-image: url("/public/assets/unchecked.jpg"); /* Image for unchecked state */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-color 0.2s ease, background-image 0.2s ease;
+}
+
+.custom-checkbox:checked {
+  background-color: #d3d3d3;
+  background-image: url("/public/assets/checked.jpg"); /* Image for checked state */
 }
 
 /* Custom Responsive */

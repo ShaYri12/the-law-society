@@ -1,7 +1,8 @@
 import React from "react";
 import { SearchButton } from "./SearchButton";
-import areasOfPractice from "../../../public/assets/areaOfPractice";
+import areasOfPractice from "../../../public/assets/data/areaOfPractice";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSearch } from "../../contexts/SearchContext";
 
 export const AdvancedSearch = ({
   formData,
@@ -10,6 +11,7 @@ export const AdvancedSearch = ({
   handleInputChange,
   handleSearch,
 }) => {
+  const { areaOfPractice, setAreaOfPractice } = useSearch();
   return (
     <form onSubmit={handleSearch} className="space-y-6">
       <div className="flex md:flex-row flex-col md:gap-[20px] gap-[10px] mb-[20px]">
@@ -81,11 +83,11 @@ export const AdvancedSearch = ({
             <select
               name="areaOfPractice"
               value={formData.areaOfPractice}
-              onChange={handleInputChange}
+              onChange={(e) => setAreaOfPractice(e.target.value)}
               className="w-full p-[10px] border border-[#574840] placeholder:text-black/70 appearance-none pr-10"
             >
-              {areasOfPractice.map((area) => (
-                <option key={area.value} value={area.label}>
+              {areasOfPractice.map((area, index) => (
+                <option key={index} value={area.label}>
                   {area.label}
                 </option>
               ))}
