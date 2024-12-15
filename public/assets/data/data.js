@@ -156,4 +156,19 @@ export const data = [
     language: "Hindi, English",
     google_maps_link: "https://maps.google.com/?q=55+Compliance+Rd,+Mumbai",
   },
+  {
+    id: 20035,
+    name: "Johnson",
+    country: "United States",
+    area_of_practice: "Family - divorce and separation",
+    SRAid: "SRA1031",
+    admitted_date: "2012-06-15",
+    telephone: "+13015551234",
+    email: "alice.johnson@email.com",
+    associate_at: "123 Divorce Blvd, Divorce City, DC 30012",
+    role: "Senior Partner",
+    language: "English",
+    google_maps_link:
+      "https://maps.google.com/?q=123+Divorce+Blvd,+Divorce+City",
+  },
 ];

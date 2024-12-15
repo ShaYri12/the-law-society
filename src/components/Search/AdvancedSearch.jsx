@@ -36,7 +36,7 @@ export const AdvancedSearch = ({
 
     if (value.length > 0) {
       const filtered = countries.filter((country) =>
-        country.name.toLowerCase().startsWith(value.toLowerCase())
+        country.name.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredCountries(filtered);
       setShowDropdown(true);
