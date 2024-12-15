@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useSearch } from "../contexts/SearchContext";
 import { SearchResults } from "./Search/SearchResults";
 import RefineResults from "./Search/RefineResults";
 import SearchBox from "./Search/SearchBox";
-import { useSearch } from "../contexts/SearchContext";
 
 const SearchResultsPage = () => {
-  const location = useLocation();
-  const { areaOfPractice } = useSearch();
-  const { searchResults: initialResults, formData: initialFormData } =
-    location.state;
+  const {
+    areaOfPractice,
+    searchResults: contextSearchResults,
+    formData: contextFormData,
+    setSearchResults,
+  } = useSearch();
 
-  const [searchResults, setSearchResults] = useState(initialResults);
+  const [searchResults, setLocalSearchResults] = useState(
+    contextSearchResults || []
+  );
+
   const [formData, setFormData] = useState({
-    ...initialFormData,
-    areaOfPractice: areaOfPractice,
+    ...contextFormData,
+    areaOfPractice: areaOfPractice || "",
     secondAreaOfPractice: "",
     language: "",
   });
+
+  // Update `searchResults` when the context's `searchResults` changes
+  useEffect(() => {
+    setLocalSearchResults(contextSearchResults || []);
+  }, [contextSearchResults]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +37,7 @@ const SearchResultsPage = () => {
   };
 
   const handleSearch = () => {
-    let refined = [...initialResults];
+    let refined = [...(contextSearchResults || [])];
 
     if (formData.areaOfPractice && formData.areaOfPractice !== "All areas") {
       refined = refined.filter((item) =>
@@ -39,14 +48,10 @@ const SearchResultsPage = () => {
     }
 
     if (formData.secondAreaOfPractice) {
-      refined = refined.filter(
-        (item) =>
-          item.area_of_practice
-            .toLowerCase()
-            .includes(formData.secondAreaOfPractice.toLowerCase()) ||
-          item.area_of_practice
-            .toLowerCase()
-            .includes(formData.areaOfPractice.toLowerCase())
+      refined = refined.filter((item) =>
+        item.area_of_practice
+          .toLowerCase()
+          .includes(formData.secondAreaOfPractice.toLowerCase())
       );
     }
 
@@ -56,23 +61,13 @@ const SearchResultsPage = () => {
       );
     }
 
-    setSearchResults(refined);
+    setLocalSearchResults(refined);
+    setSearchResults(refined); // Update results in context
   };
 
   useEffect(() => {
-    setFormData((prevData) => ({
-      ...prevData,
-      areaOfPractice: areaOfPractice,
-    }));
-  }, [areaOfPractice]);
-
-  useEffect(() => {
-    handleSearch();
-  }, [formData, areaOfPractice]);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [handleInputChange]);
+  }, []);
 
   return (
     <div className="pt-[73px]">
