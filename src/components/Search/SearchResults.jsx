@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { Pagination } from "../Pagination";
 
 export const SearchResults = ({ results }) => {
   const [openSections, setOpenSections] = useState({
@@ -9,6 +10,13 @@ export const SearchResults = ({ results }) => {
     languages: false,
   });
   const [showEmail, setShowEmail] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const resultsPerPage = 5;
+
+  const totalPages = Math.ceil(results.length / resultsPerPage);
+  const indexOfLastResult = currentPage * resultsPerPage;
+  const indexOfFirstResult = indexOfLastResult - resultsPerPage;
+  const currentResults = results.slice(indexOfFirstResult, indexOfLastResult);
 
   const toggleSection = (section) => {
     setOpenSections((prev) => ({
@@ -16,6 +24,14 @@ export const SearchResults = ({ results }) => {
       [section]: !prev[section],
     }));
   };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [results]);
 
   return (
     <div className="w-full">
@@ -31,7 +47,7 @@ export const SearchResults = ({ results }) => {
         <>
           <div className="w-full">
             <div className="space-y-[60px]">
-              {results.map((solicitor, index) => (
+              {currentResults.map((solicitor, index) => (
                 <div key={index}>
                   <h1 className="text-[45px] font-bold font-tinos leading-[58px] my-[0.5em]">
                     {solicitor.name}
@@ -179,6 +195,11 @@ export const SearchResults = ({ results }) => {
               ))}
             </div>
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
           <div className="max-w-[1200px] mx-auto bg-[#F2F6F8] p-[16px] border border-[#004d71] border-l-[4px] space-y-[28px] mt-[56px]">
             <div className="flex flex-col items-start">
               <h4 className="text-[#004d71] text-[18px] text-[16px] font-[600]">
